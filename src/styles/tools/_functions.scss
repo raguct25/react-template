@@ -1,0 +1,36 @@
+/* -----------------------------------------------------------
+  Functions
+----------------------------------------------------------- */
+
+/// Strips the unit from a number.
+///
+/// @argument {number} $value
+///
+/// @return {number (unitless)}
+///
+/// @example scss
+///   $dimension: strip-unit(10px);
+///
+///   // Output
+///   $dimension: 10;
+
+@function strip-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+/// Translates a pixel value to rem.
+///
+/// @argument {number} $size
+///
+/// @return {number (rem)}
+///
+/// @example scss
+///   $dimension: rem(20px);
+///
+///   // Output
+///   $dimension: 1.25rem;
+
+@function rem($size) {
+  $remSize: strip-unit($size) / 16;
+  @return #{$remSize}rem;
+}

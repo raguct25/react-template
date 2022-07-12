@@ -1,0 +1,41 @@
+/* -----------------------------------------------------------
+  Font definitions - Armenian
+----------------------------------------------------------- */
+
+// This file is imported directly into `./styles/app.scss` and not `./styles/generic/_generic.scss`
+
+// Regular - 400
+@font-face {
+  font-display: swap;
+  font-family: 'UniversArmen';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../assets/fonts/HSBC_MtHelvetica_Armen-Rg.woff') format('woff');
+}
+
+// Light - 300
+@font-face {
+  font-display: swap;
+  font-family: 'UniversArmen';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../assets/fonts/HSBC_MtHelvetica_Armen-Lt.woff') format('woff');
+}
+
+// Medium - 500
+@font-face {
+  font-display: swap;
+  font-family: 'UniversArmen';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../assets/fonts/HSBC_MtHelvetica_Armen-Md.woff') format('woff');
+}
+
+// Bold - 700
+@font-face {
+  font-display: swap;
+  font-family: 'UniversArmen';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../assets/fonts/HSBC_MtHelvetica_Armen-Bd.woff') format('woff');
+}

@@ -1,0 +1,65 @@
+/* -----------------------------------------------------------
+  Layout settings
+----------------------------------------------------------- */
+
+/* ------- Spacing ------- */
+
+$spacing-xsmall: 2px;
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+$spacing-xlarge: 32px;
+$spacing-xxlarge: 48px;
+$spacing-xxxlarge: 76px;
+
+/* ------- General component layout settings ------- */
+
+$header-mobile-height: 56px;
+$header-desktop-height: 71px;
+
+/* ------- Mobile menu  ------- */
+
+$mobile-menu-width: 375px;
+
+/* ------- Grid ------- */
+
+$grid-max-width: 1216px;
+
+/* ------- Content blocks ------- */
+
+// Left and right padding for content containers/placeholders (the content blocks with a white background)
+$content-block-x-padding-sm: 24px;
+$content-block-x-padding-md: 82px;
+$content-block-x-padding-lg: 104px;
+
+/* ------- Breakpoints for JavaScript ------- */
+
+$breakpoint-mobile-menu: 1024px;
+$breakpoint-desktop-filter: 960px;
+
+/* ------- Breakpoints ------- */
+
+$xxsmall: 375px;
+$xsmall: 480px;
+$small: 760px;
+$medium: 960px;
+$large: 1280px;
+$extralarge: 1440px;
+$extraextralarge: 2560px;
+
+// #1118 Custom footer breakpoint to fix footer spacing bug
+$small-footer: 790px;
+
+$breakpoints: (
+  xxs: $xxsmall,
+  xs: $xsmall,
+  sm: $small,
+  sm-footer: $small-footer,
+  md: $medium,
+  lg: $large,
+  xl: $extralarge,
+  xxl: $extraextralarge,
+);
+
+/* Opacity */
+$opacity-disabled: 0.23;
