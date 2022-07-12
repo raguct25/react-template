@@ -1,0 +1,80 @@
+/* -----------------------------------------------------------
+
+  Z-Indexes for layering the application
+
+  This allows us to at a glance determine relative layers of our application
+  and prevents bugs arising from arbitrary z-index values. Indexes should be
+  listed in numerical order under 'Z-Index Applications' below.
+
+----------------------------------------------------------- */
+
+/* ------- Z-Index Scale (private vars, do not change) ------- */
+
+$z-index-1: 100;
+$z-index-2: 200;
+$z-index-3: 300;
+$z-index-4: 400;
+$z-index-5: 500;
+$z-index-6: 600;
+$z-index-7: 700;
+$z-index-8: 800;
+$z-index-9: 900;
+$z-index-10: 1000;
+$z-index-11: 1100;
+
+/* ------- Z-Index Applications ------- */
+
+$z-index-1--article-content: $z-index-1;
+$z-index-1--article-card-link: $z-index-1;
+$z-index-1--contact-header-background: $z-index-1;
+$z-index-1--general-header-background: $z-index-1;
+$z-index-1--product-carousel-image: $z-index-1;
+$z-index-1--product-header: $z-index-1;
+$z-index-1--product-hero-tile-background: $z-index-1;
+$z-index-1--product-category-tile-background: $z-index-1;
+$z-index-1--product-category-header-background: $z-index-1;
+$z-index-1--campaign-hub-header: $z-index-1;
+$z-index-1--support-header: $z-index-1;
+
+$z-index-2--article-card-options: $z-index-2;
+$z-index-2--contact-header-overlay: $z-index-2;
+$z-index-2--general-header-overlay: $z-index-2;
+$z-index-2--product-carousel-image-overlay: $z-index-2;
+$z-index-2--product-hero-tile-overlay: $z-index-2;
+$z-index-2--product-category-tile-overlay: $z-index-2;
+$z-index-2--product-category-header-title: $z-index-2;
+$z-index-2--product-category-header-background-overlay: $z-index-2;
+
+$z-index-3--article-content: $z-index-3;
+$z-index-3--product-content: $z-index-3;
+$z-index-3--article-card-menu: $z-index-3;
+$z-index-3--product-carousel-content: $z-index-3;
+$z-index-3--product-hero-tile-inner: $z-index-3;
+$z-index-3--product-hero-content: $z-index-3;
+$z-index-3--contact-header-content: $z-index-3;
+$z-index-3--general-header-content: $z-index-3;
+$z-index-3--product-category-title: $z-index-3;
+$z-index-3--campaign-hub-content: $z-index-3;
+$z-index-3--support-content: $z-index-3;
+
+$z-index-3--product-hero-control: $z-index-4;
+
+$z-index-4--product-category-title-wrapper: $z-index-4;
+
+$z-index-7--page-header: $z-index-7;
+
+$z-index-8--header: $z-index-8;
+
+$z-index-9--menu: $z-index-9;
+
+$z-index-10---desktop-country-selector: $z-index-10;
+
+$z-index-10--modal: $z-index-10;
+$z-index-10--notification: $z-index-10;
+$z-index-10--filter: $z-index-10;
+$z-index-10--listbox-overlay: $z-index-10;
+$z-index-10--sticky-call-to-action-panel: $z-index-10;
+
+$z-index-11--lightbox: $z-index-11;
+
+$z-index-10-tooltip: $z-index-10;
