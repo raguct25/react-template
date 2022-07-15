@@ -1,5 +1,4 @@
-Grid change margins & gutters
-.wrapper {
+Grid change margins & gutters .wrapper {
   padding: 0 15px;
 
   @include respond-above(sm) {
