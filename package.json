@@ -23,11 +23,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "prettier": "prettier --write src/**/*.{js,jsx,json,ts,tsx,scss,css,md}",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet",
     "lint:fix": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "lint:strict": "eslint '*/**/*.{ts,tsx}'",
-    "typescript:check": "tsc --noEmit"
+    "typescript:check": "tsc --noEmit",
+    "prettier": "prettier --write src/**/*.{js,jsx,json,ts,tsx,scss,css,md}"
   },
   "browserslist": {
     "production": [
