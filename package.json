@@ -23,16 +23,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
+    "prettier": "prettier --write src/**/*.{js,jsx,json,ts,tsx,scss,css,md}",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet",
     "lint:fix": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "lint:strict": "eslint '*/**/*.{ts,tsx}'",
     "typescript:check": "tsc --noEmit"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -47,18 +42,15 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.30.6",
-    "@typescript-eslint/parser": "^5.30.6",
-    "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,ts,tsx,scss,css,md}": [
+      "prettier --write"
+    ]
   }
 }
