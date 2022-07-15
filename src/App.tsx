@@ -2,11 +2,7 @@ import logo from './logo.svg';
 
 function App() {
   return (
-    <div
-      style={{
-        textAlign: 'center',
-      }}
-    >
+    <div style={{ textAlign: 'center' }}>
       <header>
         <h1>React Project</h1>
         <img src={logo} alt="logo" style={{ width: 250, height: 250 }} />
