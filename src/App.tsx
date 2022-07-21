@@ -1,6 +1,9 @@
+import NewComponent from './components/renderings/NewComponent/NewComponent';
 import logo from './logo.svg';
 
 function App() {
+  const data = { message: 'Welcome new component created' };
+
   return (
     <div style={{ textAlign: 'center' }}>
       <header>
@@ -12,6 +15,7 @@ function App() {
         <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
           Learn React
         </a>
+        <NewComponent fields={data} />
       </header>
     </div>
   );

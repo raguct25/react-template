@@ -10,6 +10,7 @@
     "@types/node": "^16.11.43",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "classnames": "^2.3.1",
     "node-sass": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,7 +28,12 @@
     "lint:fix": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "lint:strict": "eslint '*/**/*.{ts,tsx}'",
     "typescript:check": "tsc --noEmit",
-    "prettier": "prettier --write src/**/*.{js,jsx,json,ts,tsx,scss,css,md}"
+    "prettier": "prettier --write src/**/*.{js,jsx,json,ts,tsx,scss,css,md}",
+    "scaffold": "node scripts/scaffold-component.js",
+    "scaffold:test": "node scripts/partial-scaffold.js test",
+    "scaffold:story": "node scripts/partial-scaffold.js story",
+    "scaffold:data": "node scripts/partial-scaffold.js data",
+    "scaffold:styles": "node scripts/partial-scaffold.js styles"
   },
   "browserslist": {
     "production": [
@@ -42,6 +48,10 @@
     ]
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.12",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
