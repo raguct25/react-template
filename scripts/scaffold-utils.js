@@ -26,13 +26,7 @@ function extractArgs(args) {
 }
 
 function isValidScaffoldType(type) {
-  const validScaffoldTypes = [
-    'rendering',
-    'element',
-    'component',
-    'module',
-    'placeholder',
-  ];
+  const validScaffoldTypes = ['rendering', 'element', 'component', 'module'];
   return validScaffoldTypes.indexOf(type) >= 0;
 }
 
@@ -52,7 +46,7 @@ function scaffoldComponentTest(componentName, outputPath) {
 import React from 'react';
 import { shallow, configure } from 'enzyme';
 import ${exportVarName} from '../${exportVarName}';
-import { defaultData } from '../../../../types/types';
+import { defaultData } from '../../../../data/data';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
@@ -102,7 +96,14 @@ function scaffoldComponentCss(componentName, outputPath) {
 
   // TODO Add some default imports to the template
   const cssTemplate = `@import '../../../styles/settings/settings';
-@import '../../../styles/tools/tools';`;
+  @import '../../../styles/tools/tools';
+
+  .div-bg {
+    background-color: $color-sinbad;
+  }
+  h1 {
+    color: $color-christine;
+  }  `;
 
   const outputDirectoryPath = path.join(outputPath, componentName);
 
@@ -122,9 +123,50 @@ function scaffoldComponentCss(componentName, outputPath) {
   return outputFilePath;
 }
 
+/**
+ * Scaffolds a `*.stories.tsx` file for a component.
+ *
+ * @param {string} componentName
+ * @param {string} outputPath
+ */
+function scaffoldComponentStory(componentName, outputPath, dir = 'renderings') {
+  const exportVarName = componentName.replace(/[^\w]+/g, '');
+
+  let componentTemplate = `import React from 'react';
+  import ${exportVarName}, {
+  ${exportVarName}Props,
+  } from '../../../src/components/${dir}/${exportVarName}/${exportVarName}';
+  import { defaultData } from '../../../src/data/data';
+  import { Section } from '../../enums/sections';
+
+  export default {
+  `;
+  componentTemplate +=
+    '  title: `${Section.' +
+    dir.charAt(0).toUpperCase() +
+    dir.slice(1) +
+    '}/' +
+    exportVarName +
+    '`,';
+  componentTemplate += `
+  };
+
+  export const Default = () => (
+  <${exportVarName} {...((defaultData as unknown) as ${exportVarName}Props)} />
+  );
+  `;
+
+  const outputFilePath = path.join(outputPath, `${exportVarName}.stories.tsx`);
+
+  fs.writeFileSync(outputFilePath, componentTemplate, 'utf8');
+
+  return outputFilePath;
+}
+
 module.exports = {
   extractArgs,
   isValidScaffoldType,
   scaffoldComponentTest,
   scaffoldComponentCss,
+  scaffoldComponentStory,
 };

@@ -6,11 +6,12 @@ const {
   isValidScaffoldType,
   scaffoldComponentTest,
   scaffoldComponentCss,
+  scaffoldComponentStory,
 } = require('./scaffold-utils');
 
 const partialType = process.argv[2];
 const componentName = process.argv[3];
-const validTypes = ['test', 'styles'];
+const validTypes = ['test', 'styles', 'story'];
 
 // To change the component type to scaffold, provide a `--type` option
 // e.g. to create a Rendering (the default, this also create Sitecore files): `npm run scaffold <ComponentName> -- --type=rendering
@@ -36,6 +37,7 @@ if (!isValidScaffoldType(type)) {
 const directory = `${type}s`;
 
 const componentRootPath = `src/components/${directory}`;
+const storiesRootPath = `storybook/stories/${directory}`;
 
 try {
   if (partialType) {
@@ -69,6 +71,13 @@ try {
       partialOutputPath = scaffoldComponentCss(
         componentName,
         componentRootPath,
+      );
+      break;
+    case 'story':
+      partialOutputPath = scaffoldComponentStory(
+        componentName,
+        storiesRootPath,
+        directory,
       );
       break;
     default:

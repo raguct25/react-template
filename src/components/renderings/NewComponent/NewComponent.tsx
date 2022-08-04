@@ -14,7 +14,7 @@ export type NewComponentProps = {
 const NewComponent: FunctionComponent<NewComponentProps> = ({ fields }) => {
   const { message } = fields;
   return (
-    <div>
+    <div className={cx('div-bg')}>
       <h1>{message}</h1>
     </div>
   );

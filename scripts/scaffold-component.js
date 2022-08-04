@@ -14,6 +14,7 @@ const {
   isValidScaffoldType,
   scaffoldComponentTest,
   scaffoldComponentCss,
+  scaffoldComponentStory,
 } = require('./scaffold-utils');
 
 /*
@@ -24,7 +25,7 @@ const componentName = process.argv[2];
 // To change the component type to scaffold, provide a `--type` option
 // e.g. to create a Rendering (the default, this also create Sitecore files): `npm run scaffold <ComponentName> -- --type=rendering
 // or, to create a regular component (no Sitecore files): `npm run scaffold <ComponentName> -- --type=component
-// Types are mapped to the subdirectories of `./src/components`, and valid options are `rendering`, `element`, `component`, `module`, `placeholder`
+// Types are mapped to the subdirectories of `./src/components`, and valid options are `rendering`, `element`, `component`, `module`
 // To change the format of the data file to scaffold, provide a `--format` option -- valid options are `js` and `json`
 let { type } = extractArgs(process.argv);
 
@@ -37,13 +38,10 @@ if (!isValidScaffoldType(type)) {
   console.log(
     chalk.red('Error:'),
     chalk.yellow(`"${type}" is not a valid component type.`),
-    'Valid types are "rendering", "element", "component", "module" and "placeholder"',
+    'Valid types are "rendering", "element", "component", "module"',
   );
   return;
 }
-
-const directory = `${type}s`;
-// const isSitecoreScaffold = type === 'rendering';
 
 if (!componentName) {
   throw 'Component name was not passed. Usage: jss scaffold <ComponentName>';
@@ -53,6 +51,8 @@ if (!/^[A-Z][A-Za-z0-9-]+$/.test(componentName)) {
   throw 'Component name should start with an uppercase letter and contain only letters and numbers.';
 }
 
+const directory = `${type}s`;
+const storiesRootPath = `storybook/stories/${directory}`;
 const componentRootPath = `src/components/${directory}`;
 
 const componentOutputPath = scaffoldComponent();
@@ -65,6 +65,12 @@ const componentCssOutputPath = scaffoldComponentCss(
 const componentTestOutputPath = scaffoldComponentTest(
   componentName,
   componentRootPath,
+);
+
+const componentStoryOutputPath = scaffoldComponentStory(
+  componentName,
+  storiesRootPath,
+  directory,
 );
 
 console.log(chalk.green(`Component ${componentName} has been scaffolded.`));
@@ -81,6 +87,11 @@ console.log(
 console.log(
   `* Implement tests for the React component in ${chalk.green(
     componentTestOutputPath,
+  )}`,
+);
+console.log(
+  `* Implement the React Story component in ${chalk.green(
+    componentStoryOutputPath,
   )}`,
 );
 
@@ -110,8 +121,8 @@ function scaffoldComponent() {
     }`;
   renderTemplate = `const { message } = fields;
     return (
-      <div>
-        <h1>{message}</h1>
+      <div className={cx('div-bg')}>
+        <h1>{message} ${exportVarName}</h1>
       </div>
     );`;
 

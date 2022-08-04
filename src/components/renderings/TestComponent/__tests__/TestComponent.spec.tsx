@@ -4,16 +4,16 @@
 
 import React from 'react';
 import { shallow, configure } from 'enzyme';
-import NewComponent from '../NewComponent';
+import TestComponent from '../TestComponent';
 import { defaultData } from '../../../../data/data';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-describe('<NewComponent />', () => {
+describe('<TestComponent />', () => {
   describe('default', () => {
     it('renders', () => {
-      const component = shallow(<NewComponent {...(defaultData as any)} />);
+      const component = shallow(<TestComponent {...(defaultData as any)} />);
       expect(component).toMatchSnapshot();
     });
   });
