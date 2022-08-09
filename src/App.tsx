@@ -5,7 +5,13 @@ function App() {
   const data = { message: 'Welcome new component created' };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div
+      style={{
+        textAlign: 'center',
+        backgroundColor: '#55acee',
+        minHeight: '100vh',
+      }}
+    >
       <header>
         <h1>React Project</h1>
         <img src={logo} alt="logo" style={{ width: 250, height: 250 }} />

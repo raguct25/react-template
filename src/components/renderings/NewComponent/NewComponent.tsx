@@ -15,7 +15,7 @@ const NewComponent: FunctionComponent<NewComponentProps> = ({ fields }) => {
   const { message } = fields;
   return (
     <div className={cx('div-bg')}>
-      <h1>{message}</h1>
+      <h1 style={{ padding: '2%' }}>{message}</h1>
     </div>
   );
 };
