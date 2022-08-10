@@ -1,30 +1,30 @@
+import { Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NewComponent from './components/renderings/NewComponent/NewComponent';
-import logo from './logo.svg';
+import DefaultLayout from './layout/layout';
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+);
 
 function App() {
   const data = { message: 'Welcome new component created' };
 
   return (
-    <div
-      style={{
-        textAlign: 'center',
-        backgroundColor: '#55acee',
-        minHeight: '100vh',
-      }}
-    >
-      <header>
-        <h1>React Project</h1>
-        <img src={logo} alt="logo" style={{ width: 250, height: 250 }} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <NewComponent fields={data} />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={loading}>
+        <Routes>
+          <Route path="*" element={<DefaultLayout />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+{
+  /* <NewComponent fields={data} />; */
+}

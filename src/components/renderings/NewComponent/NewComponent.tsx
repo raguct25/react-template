@@ -11,13 +11,22 @@ export type NewComponentProps = {
   fields: NewComponentFields;
 };
 
-const NewComponent: FunctionComponent<NewComponentProps> = ({ fields }) => {
-  const { message } = fields;
+const NewComponent = ({}) => {
+  // const { message } = fields;
   return (
     <div className={cx('div-bg')}>
-      <h1 style={{ padding: '2%' }}>{message}</h1>
+      <h1 style={{ padding: '2%' }}> Welcome </h1>
     </div>
   );
 };
 
 export default memo(NewComponent);
+
+// const NewComponent: FunctionComponent<NewComponentProps> = ({ fields }) => {
+//   const { message } = fields;
+//   return (
+//     <div className={cx('div-bg')}>
+//       <h1 style={{ padding: '2%' }}>{message}</h1>
+//     </div>
+//   );
+// };

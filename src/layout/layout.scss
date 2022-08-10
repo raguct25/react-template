@@ -1,0 +1,48 @@
+@import '../../src/styles/settings/settings';
+
+.parent {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.section {
+  font-size: 1rem;
+  padding: 0.8rem;
+}
+
+.section-side {
+  font-size: 1rem;
+  padding: 0.8rem;
+  // width: 15vw;
+}
+
+.coral {
+  background-color: $color-boulder;
+}
+
+.blue {
+  background-color: $hsbc-silver;
+}
+
+header {
+  padding: 2rem;
+  grid-column: 1 / 4;
+}
+
+.left-side {
+  grid-column: 1 / 2;
+}
+
+main {
+  grid-column: 2 / 3;
+}
+
+footer {
+  grid-column: 1 / 4;
+}
+
+.test {
+  overflow-y: scroll;
+}
