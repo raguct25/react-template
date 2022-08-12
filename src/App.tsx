@@ -1,23 +1,41 @@
-import NewComponent from './components/renderings/NewComponent/NewComponent';
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './coreui/scss/style.scss';
+
+const loading = (
+  <div className="pt-3 text-center">
+    <div className="sk-spinner sk-spinner-pulse"></div>
+  </div>
+);
+
+// Containers
+const DefaultLayout = React.lazy(() => import('./coreui/layout/DefaultLayout'));
+
+// Pages
+const Login = React.lazy(() => import('./coreui/views/pages/login/Login'));
+const Register = React.lazy(
+  () => import('./coreui/views/pages/register/Register'),
+);
+const Page404 = React.lazy(
+  () => import('./coreui/views/pages/page404/Page404'),
+);
+const Page500 = React.lazy(
+  () => import('./coreui/views/pages/page500/Page500'),
+);
 
 function App() {
-  const data = { message: 'Welcome new component created' };
-
   return (
-    <div style={{ textAlign: 'center' }}>
-      <header>
-        <h1>React Project</h1>
-        <img src={logo} alt="logo" style={{ width: 250, height: 250 }} />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-        <NewComponent fields={data} />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={loading}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/404" element={<Page404 />} />
+          <Route path="/500" element={<Page500 />} />
+          <Route path="*" element={<DefaultLayout />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }
 
