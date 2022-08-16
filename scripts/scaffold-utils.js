@@ -95,9 +95,7 @@ function scaffoldComponentCss(componentName, outputPath) {
   const exportVarName = componentName.replace(/[^\w]+/g, '');
 
   // TODO Add some default imports to the template
-  const cssTemplate = `@import '../../../styles/settings/settings';
-  @import '../../../styles/tools/tools';
-
+  const cssTemplate = `@import '../../../styles/colors';
   .div-bg {
     background-color: $color-sinbad;
   }

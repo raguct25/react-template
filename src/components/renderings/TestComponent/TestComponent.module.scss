@@ -1,8 +1,9 @@
-@import '../../../styles/settings/settings';
-@import '../../../styles/tools/tools';
+@import '../../../styles/colors';
 
 .div-bg {
   background-color: $color-sinbad;
+  min-height: 100vh;
+  margin-bottom: 2%;
 }
 h1 {
   color: $color-christine;

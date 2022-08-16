@@ -42,6 +42,6 @@
     "/public",
     "/scripts",
     "storybook",
-    "/src/coreui"
+    "/src/containers"
   ]
 }

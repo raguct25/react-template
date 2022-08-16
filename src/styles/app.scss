@@ -1,16 +1,16 @@
-@charset "utf-8";
+// Import CoreUI for React components library
+@import '@coreui/coreui/scss/coreui';
 
-// See https://dev.azure.com/HSBC-PWSAzureAgencyDev/PWS-Refresh-Programme/_wiki/wikis/PWS-Refresh-Programme.wiki/96/Front-end-Coding-Standards-Guidelines?anchor=sass%2C-css-%26-css-modules
-// for Coding Standards & Guidelines for SCSS & CSS.
-// These are in addition to the guidelines set out in
-// the 'Front-end Coding Standards - v2' Word document.
+$enable-ltr: true;
+$enable-rtl: true;
 
-@import 'settings/settings';
-@import 'tools/tools';
-@import 'generic/generic';
+@import 'example';
 
-// Imports fonts separately because of issues with Storybook and loading fonts from here
-@import 'generic/fonts';
-@import 'generic/fonts-arabic';
-@import 'generic/fonts-armenian';
-@import 'utilities/utilities';
+// If you want to add custom CSS you can put it here.
+@import 'custom';
+
+@import 'colors';
+@import 'layout';
+
+// If you want to override variables do it here
+@import 'variables';
