@@ -12,10 +12,10 @@ export type DashboardProps = {
 };
 
 const Dashboard: FunctionComponent<DashboardProps> = ({ fields }) => {
-  // const { message } = fields;
+  const { message } = fields;
   return (
     <div className={cx('div-bg')}>
-      <h1> Welcome Test Dashboard </h1>
+      <h1> {message} Dashboard</h1>
     </div>
   );
 };

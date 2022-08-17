@@ -12,11 +12,10 @@ export type TestComponentProps = {
 };
 
 const TestComponent: FunctionComponent<TestComponentProps> = ({ fields }) => {
-  // const { message } = fields;
+  const { message } = fields;
   return (
     <div className={cx('div-bg')}>
-      <h1>Welcome TestComponent</h1>
-      <p>Testing</p>
+      <h1>{message} TestComponent</h1>
     </div>
   );
 };

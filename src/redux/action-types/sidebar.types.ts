@@ -1,0 +1,2 @@
+export const SIDE_BAR_SHOW = 'SIDE_BAR_SHOW';
+export const SIDE_BAR_UNFOLDABLE = 'SIDE_BAR_UNFOLDABLE';
