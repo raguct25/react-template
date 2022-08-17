@@ -3,8 +3,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { CContainer, CSpinner } from '@coreui/react';
 // routes config
 import routes from '../../route/routes';
+import { defaultData } from '../../data/data';
 
 const AppContent = () => {
+  const data = { message: defaultData.fields.message };
+
   return (
     <CContainer lg>
       <Suspense fallback={<CSpinner color="primary" />}>
@@ -17,7 +20,7 @@ const AppContent = () => {
                   path={route.path}
                   exact={route.exact}
                   name={route.name}
-                  element={<route.element />}
+                  element={<route.element fields={data} />}
                 />
               )
             );

@@ -12,10 +12,10 @@ export type NewComponentProps = {
 };
 
 const NewComponent: FunctionComponent<NewComponentProps> = ({ fields }) => {
-  // const { message } = fields;
+  const { message } = fields;
   return (
     <div className={cx('div-bg')}>
-      <h1> New Component</h1>
+      <h1> {message} New Component</h1>
     </div>
   );
 };
