@@ -21,11 +21,9 @@ root.render(
 reportWebVitals();
 
 // If use React.StrictMode
-// get this error from charts use components
+// got this error from charts package used components
 // Uncaught Error: Canvas is already in use. Chart with ID '0' must be destroyed before the canvas can be reused.
 
 //<React.StrictMode>
 //<App />
 //</React.StrictMode>
-
-//
