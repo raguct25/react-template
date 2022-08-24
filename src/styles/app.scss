@@ -5,12 +5,4 @@
 // These are in addition to the guidelines set out in
 // the 'Front-end Coding Standards - v2' Word document.
 
-@import 'settings/settings';
-@import 'tools/tools';
-@import 'generic/generic';
-
-// Imports fonts separately because of issues with Storybook and loading fonts from here
-@import 'generic/fonts';
-@import 'generic/fonts-arabic';
-@import 'generic/fonts-armenian';
-@import 'utilities/utilities';
+@import 'colors';

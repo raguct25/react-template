@@ -1,0 +1,27 @@
+/* -----------------------------------------------------------
+  Color settings
+----------------------------------------------------------- */
+
+/* ------- Color names ------- */
+
+// See http://davidwalsh.name/sass-color-variables-dont-suck for color naming conventions
+// See http://chir.ag/projects/name-that-color/ for getting names for your colors
+
+// Do not use these names directly, instead apply color style names based on usage
+// See `Color styles` below
+
+// General colors
+$color-white: #fff;
+$color-black: #000;
+$color-concrete: #f3f3f3;
+$color-loblolly: #c9d0d5;
+$color-gallery: #ededed;
+$color-sinbad: #99cecc;
+$color-rose-fog: #e5b2b5;
+$color-christine: #787878;
+$color-gray: #8c8c8c;
+$color-casper: #acbdce;
+
+// use color variable
+$mobile-submenu-text-color: $color-white;
+$mobile-submenu-bg-color: $color-black;
