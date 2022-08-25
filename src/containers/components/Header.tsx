@@ -1,9 +1,9 @@
 /* eslint-disable */
 import React, { useState } from 'react';
-import SearchModal from '../template/header/SearchModal';
-import Notifications from '../template/header/Notifications';
-import Help from '../template/header/Help';
-import UserMenu from '../template/header/UserMenu';
+import SearchModal from '../components/header/SearchModal';
+import Notifications from '../components/header/Notifications';
+import Help from '../components/header/Help';
+import UserMenu from '../components/header/UserMenu';
 function Header({ sidebarOpen, setSidebarOpen }: any) {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 

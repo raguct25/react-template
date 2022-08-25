@@ -5,30 +5,13 @@ import { Outlet } from 'react-router-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // import Sidebar from ""
-import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
 
-import Analytics from '../components/Analytics';
-import Champaigns from '../components/Champaigns';
-import Ecommerce from '../components/Ecommerce';
-import WelcomeBanner from '../dashboard/welcomebaner';
+import WelcomeBanner from '../components/welcomebaner';
+import routes from '../../route/routes';
 
-const routComponents = [
-  {
-    path: '/analytics',
-    Component: Analytics,
-  },
-  {
-    path: '/campaigns',
-    Component: Champaigns,
-  },
-  {
-    path: '/ecommerce',
-    Component: Ecommerce,
-  },
-];
-
-const routeMap = routComponents.map(({ path, Component }, key) => (
+const routeMap = routes.map(({ path, Component }, key) => (
   <Route path={path} element={<Component />} key={key} />
 ));
 
@@ -48,13 +31,7 @@ function Dashboard() {
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
             <WelcomeBanner />
-            <Routes>
-              {/* <Route path="/analytics" element={<Analytics />} />
-              <Route path="/campaigns" element={<DashboardPage />} /> */}
-              {routeMap}
-            </Routes>
-
-            {/* <Outlet /> */}
+            <Routes>{routeMap}</Routes>
           </div>
         </main>
       </div>

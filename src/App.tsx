@@ -1,21 +1,24 @@
 /* eslint-disable */
-import NewComponent from './components/renderings/NewComponent/NewComponent';
-import logo from './logo.svg';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './template/pages/Dashboard';
-import './template/css/style.css';
-function App() {
-  // const data = { message: 'Welcome new component created' };
+import React, { Suspense } from 'react';
 
+const loading = (
+  <div>
+    <h1 className="text-center text-bold mt-40">••••••</h1>
+  </div>
+);
+const DefaultLayout = React.lazy(() => import('./containers/layout/Dashboard'));
+
+function App() {
   return (
     <div>
       <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<Dashboard />} />
-        </Routes>
+        <Suspense fallback={loading}>
+          <Routes>
+            <Route path="*" element={<DefaultLayout />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
-      {/* <h1 className="bg-blue-200">hello</h1> */}
-      {/* <h1 className="bg-red-400">Hello</h1> */}
     </div>
   );
 }
