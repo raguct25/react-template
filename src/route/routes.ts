@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const Dashboard = React.lazy(
   () => import('../components/renderings/NewComponent/NewComponent'),
@@ -10,6 +10,10 @@ const Champaigns = React.lazy(
 
 const Ecommerce = React.lazy(
   () => import('../components/renderings/Dashbord/Dashbord'),
+);
+
+const List = React.lazy(
+  () => import('../components/renderings/ListComponent/ListComponent'),
 );
 
 const routes = [
@@ -24,6 +28,10 @@ const routes = [
   {
     path: '/',
     Component: Ecommerce,
+  },
+  {
+    path: '/list',
+    Component: List,
   },
 ];
 
