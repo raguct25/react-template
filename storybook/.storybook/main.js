@@ -8,6 +8,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/preset-scss',
+    '@storybook/addon-knobs',
+    "storybook-addon-rtl",
   ],
   framework: '@storybook/react',
 };

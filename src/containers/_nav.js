@@ -25,6 +25,12 @@ const _nav = [
     to: '/testComponent',
     icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'Form Component',
+    to: '/form',
+    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+  },
 ];
 
 export default _nav;

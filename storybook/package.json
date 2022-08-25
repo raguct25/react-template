@@ -21,9 +21,11 @@
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "0.0.13",
-    "babel-loader": "^8.2.5"
+    "babel-loader": "^8.2.5",
+    "storybook-addon-rtl": "^0.4.3"
   },
   "dependencies": {
+    "@storybook/addon-knobs": "^6.4.0",
     "@storybook/preset-scss": "^1.0.3",
     "css-loader": "^5.2.7",
     "sass": "^1.54.0",
