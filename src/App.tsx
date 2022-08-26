@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React, { Suspense } from 'react';
+import SignIn from './public/signIn/SignIn';
 
 const loading = (
   <div>
@@ -16,6 +17,7 @@ function App() {
         <Suspense fallback={loading}>
           <Routes>
             <Route path="*" element={<DefaultLayout />} />
+            <Route path="/" element={<SignIn />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
