@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dashboard = React.lazy(
+const Analytics = React.lazy(
   () => import('../components/renderings/NewComponent/NewComponent'),
 );
 
@@ -8,7 +8,7 @@ const Champaigns = React.lazy(
   () => import('../components/renderings/TestComponent/TestComponent'),
 );
 
-const Ecommerce = React.lazy(
+const Dashbord = React.lazy(
   () => import('../components/renderings/Dashbord/Dashbord'),
 );
 
@@ -18,19 +18,19 @@ const List = React.lazy(
 
 const routes = [
   {
-    path: '/analytics',
-    Component: Dashboard,
+    path: 'analytics',
+    Component: Analytics,
   },
   {
-    path: '/campaigns',
+    path: 'campaigns',
     Component: Champaigns,
   },
   {
-    path: '/',
-    Component: Ecommerce,
+    path: 'dashbord',
+    Component: Dashbord,
   },
   {
-    path: '/list',
+    path: '/page/list',
     Component: List,
   },
 ];
