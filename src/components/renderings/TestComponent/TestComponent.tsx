@@ -13,7 +13,6 @@ export type TestComponentProps = {
 
 const TestComponent: FunctionComponent<TestComponentProps> = ({ fields }) => {
   // const { message } = fields;
-
   return (
     <div className={cx('div-bg')}>
       <h1>Campaigns Component</h1>

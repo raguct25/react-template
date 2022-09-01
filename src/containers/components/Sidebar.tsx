@@ -159,33 +159,33 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
               {/* Dashboard */}
               <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                  pathname === '/' && 'bg-slate-900'
+                  pathname === '/page/dashbord' && 'bg-slate-900'
                 }`}
               >
                 <NavLink
                   end
-                  to="/"
+                  to="dashbord"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
-                    pathname === '/' && 'hover:text-slate-200'
+                    pathname === '/page/dashbord' && 'hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center">
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path
                         className={`fill-current text-slate-400 ${
-                          pathname === '/' && '!text-indigo-500'
+                          pathname === '/page/dashbord' && '!text-indigo-500'
                         }`}
                         d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0z"
                       />
                       <path
                         className={`fill-current text-slate-600 ${
-                          pathname === '/' && 'text-indigo-600'
+                          pathname === '/page/dashbord' && 'text-indigo-600'
                         }`}
                         d="M12 3c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z"
                       />
                       <path
                         className={`fill-current text-slate-400 ${
-                          pathname === '/' && 'text-indigo-200'
+                          pathname === '/page/dashbord' && 'text-indigo-200'
                         }`}
                         d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z"
                       />
@@ -199,27 +199,27 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
               {/* Analytics */}
               <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                  pathname === '/analytics' && 'bg-slate-900'
+                  pathname === '/page/analytics' && 'bg-slate-900'
                 }`}
               >
                 <NavLink
                   end
-                  to="/analytics"
+                  to="analytics"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
-                    pathname === '/analytics' && 'hover:text-slate-200'
+                    pathname === 'analytics' && 'hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center">
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path
                         className={`fill-current text-slate-600 ${
-                          pathname === '/analytics' && 'text-indigo-500'
+                          pathname === '/page/analytics' && 'text-indigo-500'
                         }`}
                         d="M0 20h24v2H0z"
                       />
                       <path
                         className={`fill-current text-slate-400 ${
-                          pathname === '/analytics' && 'text-indigo-300'
+                          pathname === 'page/analytics' && 'text-indigo-300'
                         }`}
                         d="M4 18h2a1 1 0 001-1V8a1 1 0 00-1-1H4a1 1 0 00-1 1v9a1 1 0 001 1zM11 18h2a1 1 0 001-1V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v14a1 1 0 001 1zM17 12v5a1 1 0 001 1h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1z"
                       />
@@ -300,7 +300,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/list"
+                              to="/page/list"
                               className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -312,7 +312,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
                           <li className="mb-1 last:mb-0">
                             <NavLink
                               end
-                              to="/list"
+                              to="/page/list"
                               className="block text-slate-400 hover:text-slate-200 transition duration-150 truncate"
                             >
                               <span className="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -329,27 +329,27 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
               {/* Campaigns */}
               <li
                 className={`px-3 py-2 rounded-sm mb-0.5 last:mb-0 ${
-                  pathname.includes('/campaigns') && 'bg-slate-900'
+                  pathname.includes('campaigns') && 'bg-slate-900'
                 }`}
               >
                 <NavLink
                   end
-                  to="/campaigns"
+                  to="/page/campaigns"
                   className={`block text-slate-200 hover:text-white truncate transition duration-150 ${
-                    pathname.includes('/campaigns') && 'hover:text-slate-200'
+                    pathname.includes('campaigns') && 'hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-center">
                     <svg className="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                       <path
                         className={`fill-current text-slate-600 ${
-                          pathname.includes('/campaigns') && 'text-indigo-500'
+                          pathname.includes('campaigns') && 'text-indigo-500'
                         }`}
                         d="M20 7a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 0120 7zM4 23a.75.75 0 01-.75-.75 1.5 1.5 0 00-1.5-1.5.75.75 0 110-1.5 1.5 1.5 0 001.5-1.5.75.75 0 111.5 0 1.5 1.5 0 001.5 1.5.75.75 0 110 1.5 1.5 1.5 0 00-1.5 1.5A.75.75 0 014 23z"
                       />
                       <path
                         className={`fill-current text-slate-400 ${
-                          pathname.includes('/campaigns') && 'text-indigo-300'
+                          pathname.includes('campaigns') && 'text-indigo-300'
                         }`}
                         d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z"
                       />
