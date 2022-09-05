@@ -1,7 +1,8 @@
 /* eslint-disable */
-import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Transition from '../Transition';
+
+import React, { useState, useRef, useEffect } from 'react';
 
 function Notifications() {
   const [dropdownOpen, setDropdownOpen] = useState(false);

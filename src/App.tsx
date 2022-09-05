@@ -1,16 +1,23 @@
 /* eslint-disable */
 
+import routes from './route/routes';
+import SignIn from './public/signIn/SignIn';
 import Loading from './assests/images/refresh.svg';
 
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import React, { Suspense } from 'react';
-import SignIn from './public/signIn/SignIn';
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const loading = (
   <div className=" h-screen flex justify-center items-center">
     <img className="animate-spin w-16" src={Loading} alt="Loading Icon" />
   </div>
 );
+
+const routeMap = routes.map(({ path, Component }: any, key) => (
+  <Route path={path} element={<Component />} key={key} />
+));
+
 const DefaultLayout = React.lazy(() => import('./containers/layout/Dashboard'));
 
 function App() {
@@ -19,8 +26,10 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={loading}>
           <Routes>
-            <Route path="/" element={<SignIn />} />
-            <Route path="/page/*" element={<DefaultLayout />} />
+            <Route path="/" element={<DefaultLayout />}>
+              {routeMap}
+            </Route>
+            <Route path="/login" element={<SignIn />} />
             <Route
               path="*"
               element={
