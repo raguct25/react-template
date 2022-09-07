@@ -1,19 +1,11 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-// import { Outlet } from 'react-router-dom';
-
-import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
-
-// import Sidebar from ""
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-
+import { Outlet } from 'react-router-dom';
+import requireAuth from '../../hoc/Hoc';
 import WelcomeBanner from '../components/welcomebaner';
-import routes from '../../route/routes';
 
-const routeMap = routes.map(({ path, Component }, key) => (
-  <Route path={path} element={<Component />} key={key} />
-));
+import React, { useState } from 'react';
 
 function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -31,8 +23,7 @@ function Dashboard() {
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
             <WelcomeBanner />
-            <Routes>{routeMap}</Routes>
-            {/* <Outlet /> */}
+            <Outlet />
           </div>
         </main>
       </div>
@@ -40,5 +31,5 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default requireAuth(Dashboard);
 /* eslint-disable */

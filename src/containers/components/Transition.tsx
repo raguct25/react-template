@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React, { useRef, useEffect, useContext } from 'react';
 import { CSSTransition as ReactCSSTransition } from 'react-transition-group';
+import React, { useRef, useEffect, useContext } from 'react';
 
 const TransitionContext = React.createContext<any>({
   parent: {},

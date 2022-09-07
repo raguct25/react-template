@@ -1,9 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { addLoginData } from '../../redux/actions/login/Login.action';
 import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import Dashboard from '../../containers/layout/Dashboard';
 
 type FormValues = {
   email: string;
@@ -23,9 +22,9 @@ const SignIn = () => {
   let navigate = useNavigate();
 
   return (
-    <div className="h-screen w-full bg-gray-200 flex flex-col justify-center items-center ">
-      <div className="bg-white m-auto w-[30rem] p-14 border rounded-lg bg-gray-300">
-        <h1 className="text-center test-bold text-4xl mb-5 text-black ">
+    <div className="h-screen w-full bg-indigo-200 flex flex-col justify-center items-center transition-all ease-out duration-900 transform">
+      <div className="bg-white m-auto w-[30rem] p-14 border rounded-lg bg-slate-800">
+        <h1 className="text-center test-bold text-4xl mb-5 text-white">
           Login to Your Account
         </h1>
         <form
@@ -33,7 +32,7 @@ const SignIn = () => {
           onSubmit={handleSubmit((data) => {
             dispatch(addLoginData(data));
             if (!errors.email?.message && !errors.password?.message) {
-              navigate('/page');
+              navigate('/');
             }
           })}
           className="grid gap-y-2 grid-col"
@@ -79,7 +78,7 @@ const SignIn = () => {
 
           <input
             type="submit"
-            className={`rounded-lg bg-red-500 p-2 hover:bg-red-600 `}
+            className={`rounded-lg bg-red-500 p-2 duration-500 hover:bg-red-600 `}
           />
         </form>
       </div>

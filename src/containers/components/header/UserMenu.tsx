@@ -1,9 +1,11 @@
 /* eslint-disable */
-import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Transition from '../../components/Transition';
-
 import UserAvatar from '../../../assests/images/avatars/user-avatar-32.png';
+import Transition from '../../components/Transition';
+import { useDispatch } from 'react-redux';
+import { logoutAction } from '../../../redux/actions/login/Login.action';
+
+import React, { useState, useRef, useEffect } from 'react';
 
 function UserMenu() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,6 +37,13 @@ function UserMenu() {
     document.addEventListener('keydown', keyHandler);
     return () => document.removeEventListener('keydown', keyHandler);
   });
+
+  const dispatch = useDispatch();
+
+  const logOut = () => {
+    setDropdownOpen(!dropdownOpen);
+    dispatch(logoutAction());
+  };
 
   return (
     <div className="relative inline-flex">
@@ -97,8 +106,8 @@ function UserMenu() {
             <li>
               <Link
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                to="/"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                to="/login"
+                onClick={() => logOut()}
               >
                 Sign Out
               </Link>
