@@ -2,7 +2,7 @@
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import { Outlet } from 'react-router-dom';
-import requireAuth from './Hoc';
+import requireAuth from '../../hoc/Hoc';
 import WelcomeBanner from '../components/welcomebaner';
 
 import React, { useState } from 'react';
