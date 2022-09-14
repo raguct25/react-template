@@ -7,6 +7,7 @@ import Loading from './assests/images/refresh.svg';
 import React, { Suspense } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Book from './containers/components/Book';
 
 const loading = (
   <div className=" h-screen flex justify-center items-center">
@@ -41,6 +42,7 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      {/* <Book /> */}
     </div>
   );
 }

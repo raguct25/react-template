@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { addLoginData } from '../../redux/actions/login/Login.action';
+import { addLoginData, jwtToken } from '../../redux/actions/login/Login.action';
 import { useSelector, useDispatch } from 'react-redux';
+import Api from '../../interceptor/Api';
 
 type FormValues = {
   email: string;
-  password: number;
+  password: string;
+  token?: string;
 };
 
 const SignIn = () => {
@@ -15,6 +17,34 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>();
+
+  const [user, setUser] = useState<FormValues>({
+    email: '',
+    password: '',
+    token: '',
+  });
+
+  const onSubmit = handleSubmit(async (data) => {
+    console.log(data);
+
+    await Api.post('/v1/login', data)
+      .then((res) => {
+        token = res.headers['authorization'];
+        console.log('token', token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    data.token = token;
+    console.log(data);
+
+    dispatch(addLoginData(data));
+    if (!errors.email?.message && !errors.password?.message) {
+      navigate('/dashbord');
+    }
+  });
+
+  let token: string;
 
   const dispatch = useDispatch();
   const state = useSelector((state: any) => state.login);
@@ -27,16 +57,7 @@ const SignIn = () => {
         <h1 className="text-center test-bold text-4xl mb-5 text-white">
           Login to Your Account
         </h1>
-        <form
-          action=""
-          onSubmit={handleSubmit((data) => {
-            dispatch(addLoginData(data));
-            if (!errors.email?.message && !errors.password?.message) {
-              navigate('/');
-            }
-          })}
-          className="grid gap-y-2 grid-col"
-        >
+        <form action="" onSubmit={onSubmit} className="grid gap-y-2 grid-col">
           <input
             {...register('email', {
               required: true,

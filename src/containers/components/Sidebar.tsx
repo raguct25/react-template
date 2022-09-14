@@ -192,7 +192,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Dashboard
+                      Book List
                     </span>
                   </div>
                 </NavLink>
@@ -226,7 +226,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
                       />
                     </svg>
                     <span className="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Analytics
+                      Add Books
                     </span>
                   </div>
                 </NavLink>

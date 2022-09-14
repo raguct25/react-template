@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const Analytics = React.lazy(
   () => import('../components/renderings/NewComponent/NewComponent'),
@@ -16,6 +16,8 @@ const List = React.lazy(
   () => import('../components/renderings/ListComponent/ListComponent'),
 );
 
+const Book = React.lazy(() => import('../containers/components/Book'));
+
 const routes = [
   {
     path: 'analytics',
@@ -32,6 +34,10 @@ const routes = [
   {
     path: '/page/list',
     Component: List,
+  },
+  {
+    path: '/book',
+    Component: Book,
   },
 ];
 
