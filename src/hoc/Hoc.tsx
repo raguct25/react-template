@@ -10,7 +10,7 @@ const requireAuth = (ComposedComponent: any) => {
     const state = useSelector((state: any) => state.login);
 
     useEffect(() => {
-      if (state.isAuth) {
+      if (state.authorization) {
         navigate(location.pathname);
       } else {
         navigate('/login');
