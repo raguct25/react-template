@@ -9,7 +9,6 @@ import Api from '../../interceptor/Api';
 const INITIAL_STATE: LoginState = {
   email: '',
   password: '',
-  isAuth: false,
   authorization: '',
 };
 
@@ -23,7 +22,6 @@ function loginReducer(state = INITIAL_STATE, action: LoginTypes): LoginState {
         ...state,
         email: myPayload.email,
         password: myPayload.password,
-        isAuth: true,
         authorization: myPayload.token,
       };
     }
@@ -33,18 +31,9 @@ function loginReducer(state = INITIAL_STATE, action: LoginTypes): LoginState {
         ...state,
         email: INITIAL_STATE.email,
         password: INITIAL_STATE.password,
-        isAuth: INITIAL_STATE.isAuth,
         authorization: INITIAL_STATE.authorization,
       };
     }
-
-    // case JWT_TOKEN: {
-    //   console.log('myPayload', myPayload);
-    //   return {
-    //     ...state,
-    //     authorization: myPayload.authorization,
-    //   };
-    // }
 
     default:
       return state;

@@ -1,15 +1,20 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import React, { useEffect } from 'react';
+import { LoginReducerState } from '../redux/model/login.model';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const requireAuth = (ComposedComponent: any) => {
+const requireAuth = (ComposedComponent: React.FunctionComponent) => {
   const Authentication = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const state = useSelector((state: any) => state.login);
+    const state = useSelector((states: LoginReducerState) => {
+      return states.login;
+    });
 
     useEffect(() => {
+      console.log('render----------');
+
       if (state.authorization) {
         navigate(location.pathname);
       } else {
@@ -17,7 +22,7 @@ const requireAuth = (ComposedComponent: any) => {
       }
     }, []);
 
-    return <div>{state.isAuth && <ComposedComponent />}</div>;
+    return state.authorization ? <ComposedComponent /> : null;
   };
   return Authentication;
 };

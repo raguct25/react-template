@@ -36,7 +36,7 @@ const routes = [
     Component: List,
   },
   {
-    path: '/book',
+    path: '/book/:id',
     Component: Book,
   },
 ];

@@ -2,10 +2,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { store } from '../redux/store';
 
-// const state = useSelector((state: any) => state.login);
-
 const Api = axios.create({
-  baseURL: 'http://192.168.1.239:3001',
+  baseURL: 'http://localhost:3001',
   // headers: {
   //   'content-type': 'application/json',
   // },
@@ -16,11 +14,6 @@ console.log('state', state.login.authorization);
 
 Api.interceptors.request.use(
   (request: any) => {
-    // request.headers['authorization'] = state.login.authorization;
-    if (state.login.authorization) {
-      request.headers['authorization'] = state.login.authorization;
-    }
-
     return request;
   },
   (error) => {
@@ -36,8 +29,8 @@ Api.interceptors.response.use(
   },
   (error) => {
     if (error.response.status !== 200) {
-      console.log('Not Found');
       window.location.href = '/login';
+      console.log('Not Found');
     }
     return Promise.reject(error);
   },

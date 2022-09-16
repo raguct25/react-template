@@ -8,6 +8,7 @@ import React, { Suspense } from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Book from './containers/components/Book';
+import NewComponent from './components/renderings/NewComponent/NewComponent';
 
 const loading = (
   <div className=" h-screen flex justify-center items-center">
@@ -43,6 +44,7 @@ function App() {
         </Suspense>
       </BrowserRouter>
       {/* <Book /> */}
+      {/* <NewComponent/> */}
     </div>
   );
 }

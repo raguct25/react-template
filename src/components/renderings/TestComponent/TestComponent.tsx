@@ -1,7 +1,8 @@
-import React, { memo, FunctionComponent } from 'react';
+import React, { memo, FunctionComponent, useState } from 'react';
 import { AnchorableField } from '../../../types/types';
 import classNames from 'classnames/bind';
 import styles from './TestComponent.module.scss';
+import { useRef, createRef } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +13,6 @@ export type TestComponentProps = {
 };
 
 const TestComponent: FunctionComponent<TestComponentProps> = ({ fields }) => {
-  // const { message } = fields;
   return (
     <div className={cx('div-bg')}>
       <h1>Campaigns Component</h1>
