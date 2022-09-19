@@ -5,13 +5,16 @@ import Transition from '../Transition';
 import React, { useRef, useEffect } from 'react';
 
 function SearchModal({ id, searchId, modalOpen, setModalOpen }: any) {
-  const modalContent: React.MutableRefObject<any> = useRef(null);
-  const searchInput: React.MutableRefObject<any> = useRef(null);
+  const modalContent: React.MutableRefObject<null | HTMLDivElement> =
+    useRef(null);
+  const searchInput: React.MutableRefObject<null | HTMLInputElement> =
+    useRef(null);
 
   // close on click outside
   useEffect(() => {
-    const clickHandler = ({ target }: any) => {
-      if (!modalOpen || modalContent.current.contains(target)) return;
+    const clickHandler = (e: Event) => {
+      if (!modalOpen || modalContent.current?.contains(e.target as HTMLElement))
+        return;
       setModalOpen(false);
     };
     document.addEventListener('click', clickHandler);
@@ -20,8 +23,8 @@ function SearchModal({ id, searchId, modalOpen, setModalOpen }: any) {
 
   // close if the esc key is pressed
   useEffect(() => {
-    const keyHandler = ({ keyCode }: any) => {
-      if (!modalOpen || keyCode !== 27) return;
+    const keyHandler = (e: KeyboardEvent) => {
+      if (!modalOpen || e.keyCode !== 27) return;
       setModalOpen(false);
     };
     document.addEventListener('keydown', keyHandler);
@@ -29,7 +32,7 @@ function SearchModal({ id, searchId, modalOpen, setModalOpen }: any) {
   });
 
   useEffect(() => {
-    modalOpen && searchInput.current.focus();
+    modalOpen && searchInput.current?.focus();
   }, [modalOpen]);
 
   return (
