@@ -10,16 +10,17 @@ import React, { useState, useRef, useEffect } from 'react';
 function UserMenu() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const trigger: React.MutableRefObject<any> = useRef(null);
-  const dropdown: React.MutableRefObject<any> = useRef(null);
+  const trigger: React.MutableRefObject<null | HTMLButtonElement> =
+    useRef(null);
+  const dropdown: React.MutableRefObject<null | HTMLDivElement> = useRef(null);
 
   // close on click outside
   useEffect(() => {
-    const clickHandler = ({ target }: any) => {
+    const clickHandler = (e: Event) => {
       if (
         !dropdownOpen ||
-        dropdown.current.contains(target) ||
-        trigger.current.contains(target)
+        dropdown.current?.contains(e.target as HTMLElement) ||
+        trigger.current?.contains(e.target as HTMLElement)
       )
         return;
       setDropdownOpen(false);
@@ -30,8 +31,8 @@ function UserMenu() {
 
   // close if the esc key is pressed
   useEffect(() => {
-    const keyHandler = ({ keyCode }: any) => {
-      if (!dropdownOpen || keyCode !== 27) return;
+    const keyHandler = (e: KeyboardEvent) => {
+      if (!dropdownOpen || e.keyCode !== 27) return;
       setDropdownOpen(false);
     };
     document.addEventListener('keydown', keyHandler);

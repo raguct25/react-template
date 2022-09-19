@@ -2,7 +2,11 @@
 import { CSSTransition as ReactCSSTransition } from 'react-transition-group';
 import React, { useRef, useEffect, useContext } from 'react';
 
-const TransitionContext = React.createContext<any>({
+interface IContest {
+  parent: any;
+}
+
+const TransitionContext = React.createContext<IContest>({
   parent: {},
 });
 
@@ -28,24 +32,28 @@ function CSSTransition({
   children,
   ...rest
 }: any) {
-  const enterClasses = enter.split(' ').filter((s: any) => s.length);
-  const enterStartClasses = enterStart.split(' ').filter((s: any) => s.length);
-  const enterEndClasses = enterEnd.split(' ').filter((s: any) => s.length);
-  const leaveClasses = leave.split(' ').filter((s: any) => s.length);
-  const leaveStartClasses = leaveStart.split(' ').filter((s: any) => s.length);
-  const leaveEndClasses = leaveEnd.split(' ').filter((s: any) => s.length);
+  const enterClasses = enter.split(' ').filter((s: string) => s.length);
+  const enterStartClasses = enterStart
+    .split(' ')
+    .filter((s: string) => s.length);
+  const enterEndClasses = enterEnd.split(' ').filter((s: string) => s.length);
+  const leaveClasses = leave.split(' ').filter((s: string) => s.length);
+  const leaveStartClasses = leaveStart
+    .split(' ')
+    .filter((s: string) => s.length);
+  const leaveEndClasses = leaveEnd.split(' ').filter((s: string) => s.length);
   const removeFromDom = unmountOnExit;
 
-  function addClasses(node: any, classes: any) {
+  function addClasses(node: HTMLElement, classes: string[]) {
     classes.length && node.classList.add(...classes);
   }
 
-  function removeClasses(node: any, classes: any) {
+  function removeClasses(node: HTMLElement, classes: string[]) {
     classes.length && node.classList.remove(...classes);
   }
 
   const nodeRef: React.MutableRefObject<any> = React.useRef(null);
-  const Component: any = tag;
+  const Component: string = tag;
 
   return (
     <ReactCSSTransition
@@ -92,6 +100,7 @@ function CSSTransition({
 
 function Transition({ show, appear, ...rest }: any) {
   const { parent } = useContext(TransitionContext);
+
   const isInitialRender = useIsInitialRender();
   const isChild = show === undefined;
 

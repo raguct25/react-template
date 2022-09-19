@@ -5,11 +5,12 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 import React, { useState, useEffect, useRef } from 'react';
 
-function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
-  interface ISelectHtml {
-    body: HTMLElement;
-  }
+interface ISidebar {
+  sidebarOpen: boolean;
+  setSidebarOpen: (value: boolean) => void;
+}
 
+function Sidebar({ sidebarOpen, setSidebarOpen }: ISidebar) {
   const bodyElement = document.querySelector('body') as HTMLElement;
 
   const body = document.querySelector('body');
@@ -17,8 +18,9 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
   const location = useLocation();
   const { pathname } = location;
 
-  const trigger: React.MutableRefObject<any> = useRef(null);
-  const sidebar: React.MutableRefObject<any> = useRef(null);
+  const trigger: React.MutableRefObject<null | HTMLButtonElement> =
+    useRef(null);
+  const sidebar: React.MutableRefObject<null | HTMLDivElement> = useRef(null);
 
   const storedSidebarExpanded = localStorage.getItem('sidebar-expanded');
 
@@ -27,12 +29,12 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
   );
 
   useEffect(() => {
-    const clickHandler = ({ target }: any) => {
+    const clickHandler = (e: Event) => {
       if (!sidebar.current || !trigger.current) return;
       if (
         !sidebarOpen ||
-        sidebar.current.contains(target) ||
-        trigger.current.contains(target)
+        sidebar.current.contains(e.target as HTMLElement) ||
+        trigger.current.contains(e.target as HTMLElement)
       )
         return;
       setSidebarOpen(false);
@@ -43,8 +45,8 @@ function Sidebar({ sidebarOpen, setSidebarOpen }: any) {
 
   // close if the esc key is pressed
   useEffect(() => {
-    const keyHandler = ({ keyCode }: any) => {
-      if (!sidebarOpen || keyCode !== 27) return;
+    const keyHandler = (e: KeyboardEvent) => {
+      if (!sidebarOpen || e.keyCode !== 27) return;
       setSidebarOpen(false);
     };
     document.addEventListener('keydown', keyHandler);

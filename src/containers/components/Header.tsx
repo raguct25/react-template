@@ -6,7 +6,12 @@ import UserMenu from '../components/header/UserMenu';
 import SearchModal from '../components/header/SearchModal';
 import Notifications from '../components/header/Notifications';
 
-function Header({ sidebarOpen, setSidebarOpen }: any) {
+interface ISidebar {
+  sidebarOpen: boolean;
+  setSidebarOpen: (value: boolean) => void;
+}
+
+function Header({ sidebarOpen, setSidebarOpen }: ISidebar) {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
 
   return (

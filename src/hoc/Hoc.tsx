@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const requireAuth = (ComposedComponent: any) => {
+const requireAuth = (ComposedComponent: React.FC) => {
   const Authentication = () => {
     const navigate = useNavigate();
     const location = useLocation();

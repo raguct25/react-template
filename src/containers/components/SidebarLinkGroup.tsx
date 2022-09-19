@@ -1,7 +1,12 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 
-function SidebarLinkGroup({ children, activecondition }: any) {
+interface ISidebarLinkGroup {
+  children: React.FunctionComponent;
+  activecondition: boolean;
+}
+
+function SidebarLinkGroup({ children, activecondition }: ISidebarLinkGroup) {
   const [open, setOpen] = useState(activecondition);
 
   const handleClick = () => {

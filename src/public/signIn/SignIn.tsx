@@ -9,6 +9,14 @@ type FormValues = {
   password: number;
 };
 
+interface IState {
+  login: {
+    email: string;
+    password: string;
+    isAuth: boolean;
+  };
+}
+
 const SignIn = () => {
   const {
     register,
@@ -17,7 +25,7 @@ const SignIn = () => {
   } = useForm<FormValues>();
 
   const dispatch = useDispatch();
-  const state = useSelector((state: any) => state.login);
+  const state = useSelector((state: IState) => state.login);
 
   let navigate = useNavigate();
 
